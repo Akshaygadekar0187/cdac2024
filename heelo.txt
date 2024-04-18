@@ -1,0 +1,153 @@
+testmoz.com/q/13594532
+https://www.hackerrank.com/contests/ads-mar24-lab-exam/challenges
+
+que1 
+public static String isBalanced(String s) {
+      Stack<Character> str = new Stack();
+         String ans = "YES";
+        String no ="NO";
+        boolean answer = true;
+        for( int i =0 ; i <s.length() ; i++){
+         char ch = s.charAt(i);
+            if(ch == '{' || ch == '[' || ch =='('){
+                str.push(ch);
+                continue;
+              }
+            if(str.isEmpty()){
+                return no;
+             }
+            
+            if(ch == ')'){
+                if(str.peek() == '('){
+                    str.pop();
+                }else{
+                    answer = false;
+                    break;
+                }
+            }
+            if(ch == ']'){
+                if(str.peek() == '['){
+                    str.pop();
+                }else{
+                    answer = false;
+                    break;
+                }
+            }
+            if(ch == '}'){
+                if(str.peek() == '{'){
+                    str.pop();
+                }else{
+                    answer = false;
+                    break;
+                }
+            }
+      }
+        if(!str.isEmpty()){
+                answer = false;
+            }
+            if(answer)
+            return ans;
+            else
+            return no;
+    }
+
+}
+
+/////////////////////////////////////////////////
+que1
+
+public class Solution {
+   void heapify(int arr[] ,int n , int i){
+       int largest = i;
+       int l = 2*i+1;
+       int r = 2*i+2;
+       
+       if(l<n && arr[l] > arr[largest])
+           largest = l;
+       if(r <n && arr[r] > arr[largest])
+           largest = r;
+       
+       if(largest != i){
+           int temp = arr[i];
+           arr[i] = arr[largest];
+           arr[largest] =  temp;
+           
+           heapify(arr, n , largest);
+        }
+   }
+    
+    void heapsort(int arr[]){
+        int n =arr.length;
+        for(int i = n/2 - 1 ; i >= 0 ; i--){
+            heapify(arr , n ,i);
+        }
+    
+        for(int i = n- 1 ; i > 0 ;i--){
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+        }
+    }
+     void display(int arr[]){
+         int n = arr.length;
+         for(int i = 0 ; i < n ; i++){
+             System.out.print(arr[i]+ " ");
+         }
+     }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        Solution h1 = new Solution();
+        int arr[] ={12 ,11 ,13 ,5 ,6};
+
+        h1.heapsort(arr);
+        h1.display(arr);
+    }
+}
+///////////////////////////////////
+que3
+public class Solution {
+    static class Node{
+        private int data ;
+        private Node next;
+        
+        public Node(){
+            data = 0;
+            next = null;
+        }
+        
+        public Node(int val){
+            data = val;
+            next = null;
+        }
+    }
+     private Node head;
+     public Solution(){
+        head = null;
+        
+       void display(){
+          Node trav = head;
+            while(trav != null){
+              System.out.print(trav.data);
+              trav = trav.next;
+            }  
+        }
+          void add(int val){
+              Node newnode = new Node(data);
+              newnode.next = head;
+              head = newnode;
+          }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        int pos, val;
+        Solution l1 = new Solution();
+        Scanner sc = new Scanner(System.in);
+        do{
+            val = sc.nextInt();
+            l1.display();
+            l1.add();
+        
+        
+    }
+}
