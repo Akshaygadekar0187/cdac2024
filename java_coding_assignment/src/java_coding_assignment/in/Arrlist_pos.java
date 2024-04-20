@@ -1,0 +1,21 @@
+package java_coding_assignment.in;
+
+import java.util.ArrayList;
+
+public class Arrlist_pos {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> obj = new ArrayList<>();
+		obj.add(10);
+		obj.add(20);
+		obj.add(30);
+		obj.add(40);
+		obj.add(50);
+		obj.add(60);
+		obj.add(70);
+		int elements = obj.size();
+		for (int index = 0; index < elements; index++)
+			System.out.println(obj.get(index));
+	}
+
+}
