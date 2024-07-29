@@ -1,0 +1,328 @@
+1. Check the given number is EVEN or ODD
+
+import java.util.Scanner; 
+class Num{
+    public static void main (String [] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if(n % 2 == 0){
+            System.out.println("EVEN"); 
+        }
+        else
+         System.out.println("odd");
+    }
+}
+
+time complexity : O(1)
+explanation :The program checks if the integer n is even by using the modulo operation n % 2 == 0.
+             Yes: If the result is true (i.e., n is even), the program prints "EVEN".
+             No: If the result is false (i.e., n is odd), the program prints "odd".
+
+2.Write a Java Program to find the Factorial of given number. 
+
+import java.util.Scanner;
+public class Factorial{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        
+        System.out.println("Factorial of " + n + " is " + factorial(n));
+    }
+
+    public static int factorial(int n) {
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+}
+Time Complexity:
+    Initialization (int result = 1): O(1)O(1)
+    For Loop (for (int i = 1; i <= n; i++)): This loop runs n times. 
+    Each iteration performs a multiplication operation (result *= i), which is O(1)O(1).
+    The total time complexity is O(n)O(n), since the loop executes n times.
+
+3.Find the Factorialof a number using Recursion.
+
+import java.util.Scanner;
+public class FactorialRecursive {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        
+        System.out.println("Factorial of " + n + " is " + factorial(n));
+    }
+
+    public static int factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+}
+
+Time Complexity:
+    Base Case Check (if (n == 0 || n == 1)): O(1)O(1)
+    Recursive Call (return n * factorial(n - 1)): The function calls itself n times until the base case is reached.
+    The total time complexity is O(n)O(n), because the recursion depth is n 
+
+4. Swap two numbers without using third variable approach 1
+
+class Num{
+    public static void main (String [] args){
+        int a = 5;
+        int b = 3;
+        a = a + b;
+        b = a - b; 
+        a = a - b; 
+     System.out.println("a: " + a + ", b: " + b); 
+    }
+}
+
+5. Swap two numbers without using third variable approach 2
+
+class Num{
+    public static void main (String [] args){
+        int a = 5;
+        int b = 3;
+     a = a * b; 
+     b = a / b; 
+     a= a / b; 
+     System.out.println("a: " + a + ", b: " + b); 
+    }
+}
+
+6. Swap two numbers without using third variable approach 3
+
+class Num{
+    public static void main (String [] args){
+        int a = 5;
+        int b = 3;
+     a = a ^ b; 
+     b = a ^ b; 
+     a= a ^ b; 
+     System.out.println("a: " + a + ", b: " + b); 
+    }
+}
+
+All three approaches to swapping two numbers without using a third variable have a time complexity of O(1)O(1), 
+meaning they all run in constant time.
+Each approach involves a fixed number of operations, regardless of the input values.
+
+    Approach 1: Uses three arithmetic operations (addition and subtraction).
+    Approach 2: Uses three arithmetic operations (multiplication and division).
+    Approach 3: Uses three bitwise operations (XOR).
+
+7.How to check the given number is Positive or Negative in Java? 
+
+import java.util.Scanner;
+public class CheckNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        
+        if (n > 0) {
+            System.out.println(n + " is a positive number.");
+        } else if (n < 0) {
+            System.out.println(n + " is a negative number.");
+        } else {
+            System.out.println(n + " is zero.");
+        }
+    }
+}
+time complexity
+The time complexity of the provided Java program to check if a number is positive, negative, or zero is O(1)O(1), which means constant time complexity
+
+8.Write a Java Program to find whether given number is Leap year or NOT? 
+
+import java.util.Scanner;
+public class CheckLeapYear {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+        
+        if (isLeapYear(year)) {
+            System.out.println(year + " is a leap year.");
+        } else {
+            System.out.println(year + " is not a leap year.");
+        }
+   }
+    public static boolean isLeapYear(int year) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                return year % 400 == 0;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+}
+Time Complexity
+
+The time complexity of this program is O(1)O(1) because it involves a constant number of arithmetic operations and comparisons, 
+regardless of the input size. The method isLeapYear performs a few modulus operations and conditional checks, all of which are O(1)O(1) operations
+. Thus, the overall time complexity is O(1)O(1)
+
+9.Write a Java Program to print the digits of a Given Number. 
+
+import java.util.Scanner;
+public class PrintDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        
+        if (number < 0) {
+            System.out.print("-");
+            number = -number;
+        }
+
+        printDigits(number);
+    }
+
+    public static void printDigits(int number) {
+        if (number == 0) {
+            return;
+        }
+        printDigits(number / 10);
+        System.out.println(number % 10);
+    }
+}
+
+Time Complexity
+
+The time complexity of this program remains O(log⁡10(n))O(log10​(n)), where nn is the given number, 
+because the number of recursive calls is proportional to the number of digits in the number.
+
+10.Write a Java Program to print all the Factors of the Given number.
+
+import java.util.Scanner;
+
+public class PrintFactors {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        
+        printFactors(number);
+    }
+
+    public static void printFactors(int number) {
+        System.out.println("Factors of " + number + " are:");
+        for (int i = 1; i <= number; i++) {
+            if (number % i == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+11.Write a Java Program to find sum of the digits of a given number
+
+import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        
+        int sum = findSumOfDigits(number);
+        System.out.println("The sum of the digits of " + number + " is " + sum);
+    }
+
+    public static int findSumOfDigits(int number) {
+        int sum = 0;
+        while (number != 0) {
+            sum += number % 10;
+            number = number / 10;
+        }
+        return sum;
+    }
+}
+Time Complexity
+
+The time complexity of this program is O(log⁡10(n))O(log10​(n)), where nn is the given number.
+This is because the number of digits in a number nn is approximately log⁡10(n)log10​(n), and the while loop runs once for each digit
+
+12.How to add two numbers without using the arithmetic operators in Java? 
+
+public class AddWithoutArithmetic {
+    public static void main(String[] args) {
+        int a = 15; 
+        int b = 27;
+        
+        int sum = add(a, b);
+        System.out.println("Sum of " + a + " and " + b + " is " + sum);
+    }
+
+    public static int add(int a, int b) {
+        while (b != 0) {
+            int carry = a & b; // Calculate carry
+            a = a ^ b;         // Add without carry
+            b = carry << 1;    // Shift carry
+        }
+        return a;
+    }
+}
+
+Time Complexity
+
+The time complexity of this method is O(log⁡(max⁡(a,b)))O(log(max(a,b))), where aa and bb are the input numbers.
+ This is because the number of iterations is proportional to the number of bits in the larger number, due to the shifting operation.
+
+13.Write a java program to Reverse a given number.
+
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        
+        int reversedNumber = reverse(number);
+        System.out.println("The reverse of " + number + " is " + reversedNumber);
+    }
+
+    public static int reverse(int number) {
+        int reversed = 0;
+        while (number != 0) {
+            int digit = number % 10; 
+            reversed = reversed * 10 + digit;
+            number = number / 10; 
+        }
+        return reversed;
+    }
+}
+Time Complexity
+
+The time complexity of this program is O(log⁡10(n))O(log10​(n)), where nn is the given number.
+ This is because the number of iterations of the while loop is proportional to the number of digits in the number, which is log⁡10(n)log10​(n).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
